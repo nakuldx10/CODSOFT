@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --page-bg: #F8F9FF;
+    --card-bg: #FFFFFF;
+    --surface-bg: #EEF0FF;
+    --text-primary: #0D0E21;
+    --text-muted: #5C6080;
+    --border-color: #DDE0F0;
+  }
+
+  .dark {
+    --page-bg: #0D0E21;
+    --card-bg: #14152E;
+    --surface-bg: #1C1D3A;
+    --text-primary: #F1F1F5;
+    --text-muted: #8B8FA8;
+    --border-color: #2A2B45;
+  }
+
+  body {
+    @apply antialiased transition-colors duration-300;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--page-bg);
+    color: var(--text-primary);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-2.5 px-6 rounded-lg transition-all duration-200 ease-in-out;
+  }
+  .btn-accent {
+    @apply bg-accent hover:bg-accent-dark text-white font-semibold py-2.5 px-6 rounded-lg transition-all duration-200 ease-in-out;
+  }
+  .card {
+    @apply rounded-xl border transition-all duration-300;
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+  }
+  .surface {
+    background-color: var(--surface-bg);
+  }
+  .text-primary-color {
+    color: var(--text-primary);
+  }
+  .text-muted-color {
+    color: var(--text-muted);
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 4s ease-in-out 2s infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: 200%;
+  animation: marquee-reverse 25s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
